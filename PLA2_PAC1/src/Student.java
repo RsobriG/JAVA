@@ -3,33 +3,28 @@ import java.util.ArrayList;
 
 
 public class Student extends Person {
-	private int age;
 	private int day;
 	private int month;
 	private int year;
-	private String userName;
-	private String userSurname;
 	private ArrayList<Subject> Subjects;
 	
+	
 	//Constructor
-	public Student(String userName, String userSurname) {
-		this.age = 0;
+	public Student(String userName, String userSurname, int userAge) {
+		super(userName, userSurname, userAge);
 		this.day = 0;
 		this.month = 0;
 		this.year = 0;
-		this.userName = userName;
-		this.userSurname = userSurname;
+		
 		this.Subjects = new ArrayList<Subject>();
 		
 	}
 	
-	public Student(String userName, String userSurname, int age, int day, int month, int year) {
-		this.age = age;
+	public Student(String userName, String userSurname, int userAge, int day, int month, int year) {
+		super(userName, userSurname, userAge);
 		this.day = day;
 		this.month = month;
 		this.year = year;
-		this.userName = userName;
-		this.userSurname = userSurname;
 		this.Subjects = new ArrayList<Subject>();
 		
 	}
@@ -91,22 +86,6 @@ public class Student extends Person {
 		
 	}
 	
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	
-	public String getUserName() {
-		return userName;
-	}
-	
-	public void setUserSurname(String userSurname) {
-		this.userSurname = userSurname;
-	}
-	
-	public String getUserSurname() {
-		return userSurname;
-	}
-	
 	public int ponderNotes() {
 		int notaDeTall=0;
 		int notaExam = 0;
@@ -121,8 +100,8 @@ public class Student extends Person {
 		return notaDeTall;
 	}
 	
-	@Override
-	public String toString() {
-		return "Student name: "+this.userName + " " + this.userSurname + ". ID: " + this.userID();
+	public String imprimirStudent() {
+		super.imprimirPerson();
+		return "\n ID: " + this.userID();
 	}
 }
